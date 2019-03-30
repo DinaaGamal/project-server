@@ -3,11 +3,12 @@
 	"version": "1.0.0",
 	"main": "app.js",
 	"engines": {
-		"node": "11.6.0",
-		"npm": "6.5.0"
+		"node": "11.12.0",
+		"npm": "6.7.0"
 	},
 	"scripts": {
-		"start": "nodemon ./bin/www",
+		"start": "node ./bin/www",
+		"dev": "nodemon ./bin/www",
 		"debug": "DEBUG=warbler:server nodemon --inspect"
 	},
 	"author": "Dina Gamal",
