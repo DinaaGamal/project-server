@@ -1,5 +1,4 @@
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const errorHandler = require('./handlers/error');
@@ -8,9 +7,11 @@ const messagesRoutes = require('./routes/messages');
 const { loginRequired, ensureCorrectUser } = require('./middleware/auth');
 const db = require('./models');
 const port = process.env.PORT || 8080;
+const app = express();
 // app setup
 app.use(cors());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); // true = qs lib , false = querystring lib
 
 // all the routes
 app.use('/api/auth', authRoutes);

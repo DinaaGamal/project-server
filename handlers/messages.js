@@ -12,10 +12,11 @@ exports.createMessage = async function(req, res, next) {
 		let foundUser = await db.User.findById(req.params.id);
 		// push message to THAT user
 		foundUser.messages.push(message.id);
-		// have to manually save
+		// have to manually save because i change db
 		await foundUser.save();
 		// by now the message has been saved successfully
 		// populate user
+		// hna feh problem hwa hna zahr l id w msh zahr username w l image r8m eny 3amla true lehom
 		let foundMessage = await db.Message.findById(message.id).populate('user', {
 			username: true,
 			profileImageUrl: true
